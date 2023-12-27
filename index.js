@@ -13,6 +13,7 @@ const Operations = [
 ];
 //console.table(Operations);
 let a=undefined, b=undefined, operator=undefined;
+let divideByZero = false;
 function operate(op,x,y){
     return Operations.find(operation=>operation.symbol===op).operation(x,y);
 }
@@ -20,13 +21,15 @@ const numbers = document.querySelectorAll(".digit");
 const operations = document.querySelectorAll(".operations");
 numbers.forEach(number=>number.addEventListener('click', (e)=>{
     const screen = document.querySelector(".display-screen");
-    if (a===undefined){
-        a=Number(number.textContent);
-        screen.textContent+=a;
-    }
-    else {
-        b=Number(number.textContent);
-        screen.textContent+=b;        
+    if (divideByZero===false){
+        if (a===undefined){
+            a=Number(number.textContent);
+            screen.textContent+=a;
+        }
+        else {
+            b=Number(number.textContent);
+            screen.textContent+=b;        
+        }
     }
 }));
 operations.forEach(op=>op.addEventListener("click", (e)=>{
@@ -39,6 +42,7 @@ operations.forEach(op=>op.addEventListener("click", (e)=>{
     }
     if (b===0 && operator==="/"){
         outputscreen.textContent="Division by zero error";
+        divideByZero=true;
         a=undefined;
         b=undefined;
     }
@@ -49,13 +53,18 @@ document.querySelector("#solve").addEventListener("click", (e)=>{
     const outputscreen = document.querySelector(".result-screen");
     if (a!=undefined && b!=undefined){
         a=operate(operator, a, b);
-        if (b===0 && operator==="/") outputscreen.textContent="Division by zero error";
-        b=undefined;
         //clrscr();
         outputscreen.textContent=a;
+        if (b===0 && operator==="/"){
+            outputscreen.textContent="Divide by zero error";
+            divideByZero=true;
+            a=undefined;
+        }
+        b=undefined;
     }
 })
 function clrscr(){
+    divideByZero=false;
     const screen = document.querySelector(".display-screen");
     screen.textContent = "";
     a=undefined;
