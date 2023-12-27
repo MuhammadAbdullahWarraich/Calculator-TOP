@@ -9,7 +9,7 @@ const Operations = [
     new Operator("+", (a,b)=>Number(a)+Number(b), "binary"),
     new Operator("-", (a,b)=>Number(a)-Number(b), "binary"),
     new Operator("x", (a,b)=>Number(a)*Number(b), "binary"),
-    new Operator("/", (a,b)=>Number(a)/Number(b), "binary"),
+    new Operator("/", (a,b)=>(Math.round(100000*(Number(a)/Number(b))))/100000, "binary"),
 ];
 //console.table(Operations);
 let a=undefined, b=undefined, operator=undefined;
