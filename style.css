@@ -6,6 +6,13 @@
     height: 30px;
     background-color: green;
 }
+.result-screen{
+    border: 1px solid black;
+    height: 30px;
+    background-color: green;
+    margin-top: -6px;
+    text-align: right;
+}
 .button-panel{
     /*height: 100px;*/
     width: max-content;
@@ -22,11 +29,15 @@
     flex-direction: column;
 }
 .panel-container {
+    border-radius: 5px;
+    border-width: 10px;
+    border-style: outset;
+    border-color: gray;
     width: 40vw;
     margin: 0 auto;
     width: max-content;
     margin: 0 auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 12px;
     gap: 6px;
     display: flex;
