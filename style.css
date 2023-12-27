@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+.display-screen {
+    border: 1px solid black;
+    height: 30px;
+    background-color: green;
+}
+.button-panel{
+    /*height: 100px;*/
+    width: max-content;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+.button-panel{
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+}
+.operations {
+    display: flex;
+    flex-direction: column;
+}
+.panel-container {
+    width: 40vw;
+    margin: 0 auto;
+    width: max-content;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 12px;
+    gap: 6px;
+    display: flex;
+    flex-direction: column;
+
+}
+button {
+    margin: 1px;
+}
+.r5 {
+    display: flex;
+    justify-content: space-between;
+}
